@@ -17,7 +17,6 @@ pipeline {
                     docker images -a
                     cd ..
                """)
-               )
             }
         }
     }
