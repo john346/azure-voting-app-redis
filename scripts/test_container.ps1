@@ -3,6 +3,7 @@ do {
     $count++
     Write-Output "[$env:STAGE_NAME] Starting container [Attempt: $count]"
     
+    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
     $testStart = Invoke-WebRequest -Uri http://localhost:8000
     
     if ($testStart.statuscode -eq '200') {
