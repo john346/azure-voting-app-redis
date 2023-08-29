@@ -22,7 +22,7 @@ pipeline {
         stage('Start test app') {
             steps {
                 powershell(script: """
-                    # Start app line is missing!
+                    docker-compose up -d
                     ./scripts/test_container.ps1
                 """)
             }
@@ -45,7 +45,7 @@ pipeline {
         stage('Stop test app') {
             steps {
                 powershell(script: """
-                    docker-compose down
+                    docker-compose
                 """)
             }
         }
